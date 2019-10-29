@@ -14,13 +14,14 @@ io.origins(['https://project.jhellberg.me:443']);
 let c = {company: "Tillagade Pannkakor", value: 200, date: new Date()}
 let cc = {company: "Brända Pannkakor", value: 20, date: new Date()}
 let ccc = {company: "Gräddade Pannkakor", value: 420, date: new Date()}
-await insertInCollection(dsn, "stock", {}, {}, c);
-await insertInCollection(dsn, "stock", {}, {}, cc);
-await insertInCollection(dsn, "stock", {}, {}, ccc);
+
 let stock = [];
 
 setInterval(async (request, response) => {
     let newValue = 0;
+    await insertInCollection(dsn, "stock", {}, {}, c);
+    await insertInCollection(dsn, "stock", {}, {}, cc);
+    await insertInCollection(dsn, "stock", {}, {}, ccc);
     stock = await findInCollection(dsn, "stock", {}, {}, 6);
     for(let i = 0; i < stock.length; i++) {
         const random = Math.floor(Math.random() * Math.floor(stock[i].value / 10));
