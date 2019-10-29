@@ -1,10 +1,7 @@
 const express = require('express');
-const cors = require('cors');
 const app = express();
 const mongo = require("mongodb").MongoClient;
 const dsn =  process.env.DBWEBB_DSN || "mongodb://localhost:27017/jhellberg";
-
-app.use(cors());
 
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
