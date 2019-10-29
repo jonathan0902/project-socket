@@ -6,7 +6,7 @@ const dsn =  process.env.DBWEBB_DSN || "mongodb://localhost:27017/jhellberg";
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
-io.origins(['https://project.jhellberg.me:443']);
+io.origins(['https://jhellberg.me:443']);
 
 let c = {company: "Tillagade Pannkakor", value: 200, date: new Date()}
 let cc = {company: "Brända Pannkakor", value: 20, date: new Date()}
