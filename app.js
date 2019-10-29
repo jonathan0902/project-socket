@@ -19,9 +19,9 @@ let stock = [];
 
 setInterval(async (request, response) => {
     let newValue = 0;
-    await insertInCollection(dsn, "stock", {}, {}, c);
-    await insertInCollection(dsn, "stock", {}, {}, cc);
-    await insertInCollection(dsn, "stock", {}, {}, ccc);
+    //await insertInCollection(dsn, "stock", {}, {}, c);
+    //await insertInCollection(dsn, "stock", {}, {}, cc);
+    //await insertInCollection(dsn, "stock", {}, {}, ccc);
     stock = await findInCollection(dsn, "stock", {}, {}, 6);
     for(let i = 0; i < stock.length; i++) {
         const random = Math.floor(Math.random() * Math.floor(stock[i].value / 10));
