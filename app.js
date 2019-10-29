@@ -9,7 +9,7 @@ app.use(cors());
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
-io.origins(['https://project.jhellberg.me:443/stock/']);
+io.origins('*:*');
 
 let c = {company: "Tillagade Pannkakor", value: 200, date: new Date()}
 let cc = {company: "Brända Pannkakor", value: 20, date: new Date()}
@@ -91,4 +91,4 @@ async function findmapCollection(dsn, colName, criteria, projection, limit, user
 }
 
 
-server.listen(8301);
+server.listen(8300);
