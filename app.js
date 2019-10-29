@@ -34,13 +34,13 @@ setInterval(async (request, response) => {
         await insertInCollection(dsn, "stock", {}, {}, newInsert);
     }
     console.log(stock)
-}, 60 * 1000);
+}, 300 * 1000);
 
 io.on('connection', (socket) => {
     setInterval(async (request, response) => {
         let res = await findmapCollection(dsn, "stock", {}, { _id: 0, company: 0, date: 0, value: 1}, 0);
         io.emit('getAllOnline', res);
-    }, 60 * 1000);
+    }, 300 * 1000);
 });
 
 async function findInCollection(dsn, colName, criteria, projection, limit) {
